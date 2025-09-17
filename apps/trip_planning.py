@@ -2,9 +2,10 @@
 # requires-python = ">=3.12"
 # dependencies = [
 #     "marimo",
-#     "pydeck",
-#     "pandas",
-#     "ipython",
+#     "pydeck==0.9.1",
+#     "pandas==2.3.2",
+#     "duckdb==1.4.0",
+#     "ipython==9.5.0",
 # ]
 # ///
 
@@ -19,7 +20,14 @@ def _():
     import marimo as mo
     import pandas as pd
     import pydeck as pdk
-    return mo, pd, pdk
+    import micropip
+    return micropip, mo, pd, pdk
+
+
+@app.cell
+async def _(micropip):
+    await micropip.install("ipython")
+    return
 
 
 @app.cell
