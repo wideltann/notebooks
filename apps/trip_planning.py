@@ -19,7 +19,6 @@ def _():
     import marimo as mo
     import pandas as pd
     import pydeck as pdk
-
     return mo, pd, pdk
 
 
